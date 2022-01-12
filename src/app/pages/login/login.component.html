@@ -1,22 +1,24 @@
 <div class="container">
   <div class="form-container">
-    <div class="title"><h3>Login</h3></div>
-    <form [formGroup] = "loginForm" >
-      <mat-form-field appearance="outline">
-        <mat-label>Enter you Email</mat-label>
-        <input matInput formControlName = "email"/>
-      </mat-form-field>
-      <mat-form-field appearance="outline">
-        <mat-label>Enter you Password</mat-label>
-        <input type="password" matInput formControlName = "password" />
-      </mat-form-field>
-    </form>
-    <div class="buttons-container">
-      <button mat-raised-button class="login-button">
-        Login
-      </button>
-      <p>OR</p>
-      <button mat-button routerLink="/create-account"> Create Account </button>
-    </div>
+      <div class="title">Login</div>
+      <form [formGroup]="loginForm">
+          <mat-form-field appearance="outline">
+              <mat-label>Enter you email</mat-label>
+              <input matInput formControlName="email"/>
+
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+              <mat-label>Enter you password</mat-label>
+              <input type="password" matInput formControlName="password"/>
+
+          </mat-form-field>
+      </form>
+      <div class="buttons-container">
+          <button mat-raised-button [disabled]="loginForm.invalid" (click)="login()" class="login-button">
+              Login
+          </button>
+          <p>OR</p>
+          <button routerLink="/create-account" mat-button>Create account</button>
+      </div>
   </div>
 </div>
